@@ -613,6 +613,9 @@ function loadConfig( config, internals ) {
     log.info('Using', current.env, 'settings:', s);
   }
 
+  // workaround for heroku dbs
+  if (!out.urlConfig.ssl) out.urlConfig.ssl = 'true';
+
   return out;
 }
 
